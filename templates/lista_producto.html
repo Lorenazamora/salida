@@ -1,0 +1,74 @@
+{% extends 'base.html'%}
+{% block titulo %}
+	lista productos
+{% endblock %}
+
+{% block contenido %}
+<div class="container">
+
+	<h1><center> lista de productos</center> </h1>
+		
+		<table class="striped">
+
+			<tr>
+
+				<td>Nombre</td>
+				<td>Descripcion</td>
+				<td>Status</td>
+				<td>Precio</td>
+				<td>Stoct</td>
+				<td>Marca</td>
+				<td>Categoria</td>
+				<td>Imagen</td>
+				<td>Detalle</td>
+				<td>editar</td>
+				<td>eliminar</td>
+
+
+			</tr>
+				{% for p in lista %}
+					
+					<tr>
+
+						<th>{{p.nombre}}</th>
+						<th>{{p.descripcion}}</th>
+						<th>{{p.status}}</th>
+						<th>{{p.precio}}</th>
+						<th>{{p.stock}}</th>
+						<th>{{p.marca}}</th>
+						<th>{% for c in categorias %}
+								<span class="label label-info">{{ c.nombre }}</span>
+							{% endfor %}
+
+							{% if p.categorias.all %}
+								{% for pc in p.categorias.all %}
+									{{pc}}
+								{% endfor %}
+							{% else %}
+								<h5>Sin Categorias</h5>
+							{% endif %}</th>
+							<td><img src="/media/{{p.foto}}" width="50px"></td> 
+							<td><a href="{% url 'vista_ver_producto' id_prod=p.id %}">Ver Detalle</a></td> 
+							<td><a href="{% url 'vista_editar_producto' id_prod=p.id %}">editar</a></td> 
+							<td><a href="{% url 'vista_eliminar_producto' id_prod=p.id %}">eliminar</a></td> 
+
+
+
+
+
+					</tr>
+				
+						
+				{% endfor %}
+
+		</table>
+		
+</div>
+	
+
+
+
+
+{% endblock %}
+
+

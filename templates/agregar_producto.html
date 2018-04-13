@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+{% block titulo %}
+	lista productos
+{% endblock %}
+
+{% block contenido %}
+	<form action="" method="POST" enctype="multipart/form-data">
+		{% csrf_token  %}
+		{{ formulario.as_p }}
+		<p>
+			<label>
+				{{ formulario.status }}
+				<span>Status</span>
+			</label>
+		</p>
+		<input type="submit" value="Agregar Producto">
+	</form>
+
+
+{% endblock %}

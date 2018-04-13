@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block titulo %}
+	login
+{% endblock %}
+
+
+{% block contenido %}
+<div class="row">
+    <div class="col s12 m3 ">
+    	<div class="card-panel teal  deep-purple lighten-5">
+
+
+    		<h2>{{ msj }}</h2>
+    		
+			<form action="" method="post">
+
+				
+				{% csrf_token %}
+				{{ formulario.as_p }}
+				
+				<input type="submit" value="Login">
+			</form>
+        	
+    	</div>
+    </div>
+  </div>
+{% endblock %}
+	
+

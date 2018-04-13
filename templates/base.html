@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+
+    <head>
+	     
+	    <title>{% block titulo %}{% endblock%}
+		</title>
+		 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="{% static 'css/materialize.css' %}">
+		<style type="text/css">
+			#navegador li{
+	  			display: inline;
+	   			text-align: center;
+	   			margin: 2%;
+
+			}
+		</style>
+
+    </head>
+
+</head> 
+<body>
+
+	
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script>
+	if (!window.jQuery) { document.write('<script src="bin/jquery-3.2.1.min.js"><\/script>'); }
+    </script>
+    <script>  
+    	var elem = document.querySelector('select');
+  		var instance = M.FormSelect.init(elem, options);
+
+  		// Or with jQuery
+
+		$(document).ready(function(){
+			$('select').formSelect();	
+		});
+  	</script>
+  	<script src="http://materializecss.com/js/init.js"></script>
+	
+	<link rel="stylesheet" href="{% static 'js/materialize.js' %}">
+
+	<nav>
+		
+	    <div class=" teal darken-1">
+	      <a href="{% url 'vista_lista_producto' %}">Productos</a>
+	      <ul id="nav-mobile" class="left hide-on-med-and-down">
+	      	<li><a href="{% url 'vista_login' %}">login</a></li>
+	      	<li><a href="{% url 'vista_registrar' %}">registrar</a></li>
+	        <li><a href="{% url 'vista_agregar_producto' %}">Agregar Productos</a></li>
+	        <li><a href="{% url 'vista_lista_marca' %}">Marcas</a></li>
+	        <li><a href="{% url 'vista_lista_categoria' %}">Categorias</a></li>
+	      </ul>
+	   
+
+	
+	    </div>
+  	</nav>
+
+  	<br/>
+	</div>
+	
+      
+
+	{% block contenido %}
+	{% endblock %}
+	<script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+	
+</body>
+</html>
